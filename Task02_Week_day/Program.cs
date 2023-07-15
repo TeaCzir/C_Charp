@@ -12,7 +12,9 @@ while (DayOfWeek < 1 || DayOfWeek > 7)
 {
    Console.WriteLine("Введено неправильное число.");
    Console.Write("Введите правильное число дня недели(от 1 до 7). ");
-   break;
+   DayOfWeek = Convert.ToInt32(Console.ReadLine());
+   Console.Clear();
+   Console.WriteLine($"Вы ввели число: {DayOfWeek};");
 }
 
 if (DayOfWeek == 1) Console.WriteLine("Это будет: Понедельник.");
