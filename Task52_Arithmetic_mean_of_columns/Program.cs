@@ -39,7 +39,8 @@ void PrintMatrix(int[,] matrix)
 }
 void PrintMatr(int[,] array)
 {
-   Console.Write("[ ]\t");
+   Console.WriteLine("Среднее арифметическое столбцов матрицы: ");
+   Console.Write("[м]\t");
    for (int i = 0; i < array.GetLength(1); i++)
    {
       double result = 0;
@@ -52,24 +53,6 @@ void PrintMatr(int[,] array)
    }
 }
 
-// double[] ArithmeticMeanOfColumns(int[,] matrix)
-// {
-//    double[] aritcol = new double[matrix.GetLength(1)];
-//    for (int i = 0; i < matrix.GetLength(0); i++)
-//    {
-//       for (int j = 0; j < matrix.GetLength(1); j++)
-//       {
-//          aritcol[j] += matrix[i, j] / matrix.GetLength(0);
-//       }
-//    }
-
-//    return aritcol;
-// }
-
 int[,] number = CreateAndFillMatrix(rows, columns, 1, 10);
 PrintMatrix(number);
-//double[] num = ArithmeticMeanOfColumns(number);
-// PrintMatrix(num);
-//Console.WriteLine($"        {String.Join(";      ", num)};");
-//Console.WriteLine($"        {String.Join(";      ", num)};");
 PrintMatr(number);
