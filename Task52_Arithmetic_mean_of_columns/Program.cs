@@ -37,24 +37,39 @@ void PrintMatrix(int[,] matrix)
       Console.WriteLine();
    }
 }
-
-double[] ArithmeticMeanOfColumns(int[,] matrix)
+void PrintMatr(int[,] array)
 {
-   double[] aritcol = new double[matrix.GetLength(1)];
-   for (int i = 0; i < matrix.GetLength(0); i++)
+   Console.Write("[ ]\t");
+   for (int i = 0; i < array.GetLength(1); i++)
    {
-      for (int j = 0; j < matrix.GetLength(1); j++)
-      {
-         aritcol[j] += matrix[i, j] / matrix.GetLength(0);
-      }
-   }
+      double result = 0;
 
-   return aritcol;
+      for (int j = 0; j < array.GetLength(0); j++)
+      {
+         result += array[j, i];
+      }
+      Console.Write(Math.Round(result / array.GetLength(0), 2) + "\t");
+   }
 }
+
+// double[] ArithmeticMeanOfColumns(int[,] matrix)
+// {
+//    double[] aritcol = new double[matrix.GetLength(1)];
+//    for (int i = 0; i < matrix.GetLength(0); i++)
+//    {
+//       for (int j = 0; j < matrix.GetLength(1); j++)
+//       {
+//          aritcol[j] += matrix[i, j] / matrix.GetLength(0);
+//       }
+//    }
+
+//    return aritcol;
+// }
 
 int[,] number = CreateAndFillMatrix(rows, columns, 1, 10);
 PrintMatrix(number);
-double[] num = ArithmeticMeanOfColumns(number);
+//double[] num = ArithmeticMeanOfColumns(number);
 // PrintMatrix(num);
 //Console.WriteLine($"        {String.Join(";      ", num)};");
-Console.WriteLine($"        {String.Join(";      ", num)};");
+//Console.WriteLine($"        {String.Join(";      ", num)};");
+PrintMatr(number);
