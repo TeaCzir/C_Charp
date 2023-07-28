@@ -33,25 +33,22 @@ void PrintMatrix(int[,] matrix)
    }
 }
 
-int SumOfDiagonalElement(int[,] matrix)
+double[] ArithmeticMeanOfColumns(int[,] matrix)
 {
-int sumOfDiagonal = 0;
-for (int i = 0; i < matrix.GetLength(0); i++)
-{
-   for (int j = 0; j < matrix.GetLength(1); j++)
+   double sum = 0;
+   double[] aritcol = new double[matrix.GetLength(1)];
+   for (int i = 0; i < matrix.GetLength(0); i++)
    {
-      if(i==j) sumOfDiagonal += matrix[i,j];
+      for (int j = 0; j < matrix.GetLength(1); j++)
+      {
+         sum += j;
+         aritcol[j] = sum / matrix.GetLength(0);
+      }
    }
-}
-return sumOfDiagonal;
+   return aritcol;
 }
 
-int[,] number = CreateAndFillMatrix(5,4,1,10);
+int[,] number = CreateAndFillMatrix(5, 4, 1, 10);
 PrintMatrix(number);
-
-Console.WriteLine($"Сумма по главной диагонали: {SumOfDiagonalElement(number)};");
-
-
-
-
-
+double[] num = ArithmeticMeanOfColumns(4);
+PrintMatrix(num);
