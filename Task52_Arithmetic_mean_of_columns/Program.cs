@@ -1,6 +1,11 @@
-﻿/*Задайте двухмерный массив. Найдите сумму элементов, находящихся на 
-главной диагонали (с индексами (0,0); (1,1); и т.д.*/
+﻿/*Задайте двумерный массив из целых чисел. Найдите среднее 
+арифметическое элементов в каждом столбце.*/
 
+Console.Clear();
+Console.Write("Введите количество строк: ");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество столбцов: ");
+int columns = Convert.ToInt32(Console.ReadLine());
 int[,] CreateAndFillMatrix(int rows, int columns, int start, int end)
 {
    int[,] matrix = new int[rows, columns];
@@ -35,20 +40,21 @@ void PrintMatrix(int[,] matrix)
 
 double[] ArithmeticMeanOfColumns(int[,] matrix)
 {
-   double sum = 0;
    double[] aritcol = new double[matrix.GetLength(1)];
    for (int i = 0; i < matrix.GetLength(0); i++)
    {
       for (int j = 0; j < matrix.GetLength(1); j++)
       {
-         sum += j;
-         aritcol[j] = sum / matrix.GetLength(0);
+         aritcol[j] += matrix[i, j] / matrix.GetLength(0);
       }
    }
+
    return aritcol;
 }
 
-int[,] number = CreateAndFillMatrix(5, 4, 1, 10);
+int[,] number = CreateAndFillMatrix(rows, columns, 1, 10);
 PrintMatrix(number);
-double[] num = ArithmeticMeanOfColumns(4);
-PrintMatrix(num);
+double[] num = ArithmeticMeanOfColumns(number);
+// PrintMatrix(num);
+//Console.WriteLine($"        {String.Join(";      ", num)};");
+Console.WriteLine($"        {String.Join(";      ", num)};");

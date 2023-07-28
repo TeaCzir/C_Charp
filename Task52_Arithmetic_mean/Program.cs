@@ -7,9 +7,9 @@ using static System.Console;
 Clear();
 
 Write("Введите количество строк массива: ");
-int rows = int.Parse(ReadLine());
+int rows = Convert.ToInt32(ReadLine());
 Write("Введите количество столбцов массива: ");
-int columns = int.Parse(ReadLine());
+int columns = Convert.ToInt32(ReadLine());
 int[,] array = GetArray(rows, columns, 0, 10);
 PrintArray(array);
 double[] averageColumns = GetResultArray(array);
